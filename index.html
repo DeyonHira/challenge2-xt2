@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <title>Challenge 2</title>
+    <meta charset="UTF-8" />
+    <link type="text/css" href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <link href="http://fonts.cdnfonts.com/css/distant-galaxy" rel="stylesheet">
+
+</head>
+
+<body>
+    <p id="text"> </p>
+    <p id="text2"> </p>
+    <div class="klok"></div>
+
+    <script>
+        var clock = document.querySelector('.klok');
+
+        setInterval(function() {
+            var today = new Date(),
+                currentHours = today.getHours(),
+                currentMinutes = today.getMinutes(),
+                currentSeconds = today.getSeconds();
+
+            if (currentHours < 10) {
+                currentHours = "0" + currentHours;
+            }
+
+            if (currentMinutes < 10) {
+                currentMinutes = "0" + currentMinutes;
+            }
+
+            if (currentSeconds < 10) {
+                currentSeconds = "0" + currentSeconds;
+            }
+
+            var currentTime = currentHours + " : " + currentMinutes + " : " + currentSeconds;
+
+            clock.innerHTML = currentTime;
+        }, 1000)
+
+        var now = new Date();
+        if (now.getHours() > 6 && now.getHours() < 18) {
+            document.body.className += "overdag";
+            document.getElementById("text").innerHTML= "Goedemiddag!";
+
+        } else {
+            document.body.className += "avond";
+            document.getElementById("text2").innerHTML= "Goedeavond!";
+        }
+
+    </script>
+
+
+</body>
+
+</html>
